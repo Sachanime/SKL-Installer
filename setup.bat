@@ -52,10 +52,10 @@ echo.
 timeout 1 >nul
 
 echo Select the program you want to install
-echo 
+echo.
 echo 1 - Auto-Winget
 echo 0 - Exit
-set /p choix="Votre choix : "
+set /p choix="Your choice : "
 if "%choix%"=="1" GOTO autoWinget
 if "%choix%"=="0" GOTO EXIT
 
