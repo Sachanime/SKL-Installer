@@ -9,5 +9,5 @@ Donwload the latest release and choose the program you want to install
 
 It will install all required files for the choosed program in `C:\Program Files\<program_name>`
 
-## Available SKL Programs
+## Compatible SKL Programs
 - [Auto-Winget](https://github.com/Sachanime/Auto-winget)
