@@ -43,6 +43,9 @@ echo                                     ^|___/
 timeout 3 >nul
 cls
 
+echo Welcome to
+timeout 1 >nul
+echo.
 echo  ____  _  ___       ___           _        _ _           
 echo / ___^|^| ^|/ / ^|     ^|_ _^|_ __  ___^| ^|_ __ _^| ^| ^| ___ _ __ 
 echo \___ \^| ' /^| ^|      ^| ^|^| '_ \/ __^| __/ _` ^| ^| ^|/ _ \ '__^|
@@ -55,13 +58,17 @@ echo Select the program you want to install
 echo.
 echo 1 - Auto-Winget
 echo 0 - Exit
+echo.
 set /p choix="Your choice : "
+echo.
 if "%choix%"=="1" GOTO autoWinget
 if "%choix%"=="0" GOTO EXIT
 
 :autoWinget
 
-    echo Starting Auto-Winget installation
+    echo Starting Auto-Winget installation...
+    timeout 1 >nul
+    echo.
 
     set CHECK_1=0
     set CHECK_2=0
@@ -97,6 +104,7 @@ if "%choix%"=="0" GOTO EXIT
     echo.
     echo Thanks for using SKL Programs!
     timeout -1 >nul
+    exit
 
 :EXIT
 
