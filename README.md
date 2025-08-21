@@ -1,5 +1,5 @@
 # SKL-Installer
-A installer for all SKL Programs
+An installer for all SKL Programs
 
 [![GitHub Release](https://img.shields.io/github/v/release/Sachanime/SKL-Installer?logo=Github)](https://github.com/Sachanime/SKL-Installer/releases)
 
