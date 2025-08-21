@@ -7,7 +7,7 @@ An installer for all SKL Programs
 
 Donwload the latest release and choose the program you want to install
 
-It will install all required files for the choosed program in `C:\Program Files\<program_name>`
+It will install all required files for the choosed program in `C:\Program Files\SKL\<program_name>`
 
 ## Compatible SKL Programs
 - [Auto-Winget](https://github.com/Sachanime/Auto-winget)
