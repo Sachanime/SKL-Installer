@@ -57,12 +57,14 @@ timeout 1 >nul
 echo Select the program you want to install
 echo.
 echo 1 - Auto-Winget
+echo 2 - Registry-Reparator
 echo 0 - Exit
 echo.
-set /p choix="Your choice : "
+set /p choice="Your choice : "
 echo.
-if "%choix%"=="1" GOTO autoWinget
-if "%choix%"=="0" GOTO EXIT
+if "%choice%"=="1" GOTO autoWinget
+if "%choice%"=="2" GOTO registryReparator
+if "%choice%"=="0" GOTO EXIT
 
 :autoWinget
 
@@ -101,10 +103,36 @@ if "%choix%"=="0" GOTO EXIT
 
     ) else ( echo Operation failed )
 
+GOTO EXIT
+
+:registryReparator
+
+    echo Starting Auto-Winget installation...
+    timeout 1 >nul
     echo.
-    echo Thanks for using SKL Programs!
-    timeout -1 >nul
-    exit
+
+    set CHECK_1=0
+    set CHECK_2=0
+
+    echo Create directories...
+    mkdir "C:\Program Files\SKL\Registry-Reparator"
+    timeout 1 >nul
+    echo.
+
+    echo Download files...
+    timeout 3 >nul
+    curl -L -o "C:\Program Files\SKL\Registry-Reparator\Registry_Reparator.exe" https://raw.githubusercontent.com/Sachanime/Registry-Reparator/main/Registry_Reparator.exe && set CHECK_1=1
+    curl -L -o "C:\Program Files\SKL\Registry-Reparator\UserDiag.exe" https://userdiag.com/download && set CHECK_2=1
+    timeout 1 >nul
+    echo.
+
+    if %CHECK_1%==1 ( 
+
+        if %CHECK_2%==1 ( echo Operation successful ) else ( echo Operation failed )
+
+    ) else ( echo Operation failed )
+
+GOTO EXIT
 
 :EXIT
 
