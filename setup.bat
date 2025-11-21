@@ -74,32 +74,41 @@ if "%choice%"=="0" GOTO EXIT
 
     set CHECK_1=0
     set CHECK_2=0
+    set CHECK_3=0
 
-    echo Activate Sudo...
+    echo Activating Sudo...
     sudo config --enable normal
     timeout 1 >nul
     echo.
 
-    echo Create directories...
+    echo Creating directories...
     mkdir "C:\Program Files\SKL\Auto-Winget"
     timeout 1 >nul
     echo.
 
-    echo Download files...
+    echo Downloading files...
     timeout 3 >nul
     curl -L -o "C:\Program Files\SKL\Auto-Winget\Auto-Winget.ps1" https://raw.githubusercontent.com/Sachanime/Auto-winget/main/Auto-Winget.ps1 && set CHECK_1=1
     curl -L -o "C:\Program Files\SKL\Auto-Winget\Auto-winget.xml" https://raw.githubusercontent.com/Sachanime/Auto-winget/main/Auto-Winget.xml
     timeout 1 >nul
     echo.
 
-    echo Import scheduled task...
+    echo Importing scheduled task...
     powershell -Command "Register-ScheduledTask -Xml (Get-Content 'C:\Program Files\SKL\Auto-Winget\Auto-winget.xml' -Raw) -TaskName 'Auto-Winget'" && set CHECK_2=1
     timeout 1 >nul
     echo.
 
+    echo Adding to Path...
+    $path = "C:\Mon\Nouveau\Chemin"
+    [Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + $path, [EnvironmentVariableTarget]::Machine) && set CHECK_3=1
+
     if %CHECK_1%==1 ( 
 
-        if %CHECK_2%==1 ( echo Operation successful ) else ( echo Operation failed )
+        if %CHECK_2%==1 ( 
+
+            if %CHECK_3%==1 ( echo Operation successful ) else ( echo Operation failed )
+
+        ) else ( echo Operation failed )
 
     ) else ( echo Operation failed )
 
@@ -114,12 +123,12 @@ GOTO EXIT
     set CHECK_1=0
     set CHECK_2=0
 
-    echo Create directories...
+    echo Creating directories...
     mkdir "C:\Program Files\SKL\Registry-Reparator"
     timeout 1 >nul
     echo.
 
-    echo Download files...
+    echo Downloading files...
     timeout 3 >nul
     curl -L -o "C:\Program Files\SKL\Registry-Reparator\Registry_Reparator.exe" https://raw.githubusercontent.com/Sachanime/Registry-Reparator/main/Registry_Reparator.exe && set CHECK_1=1
     curl -L -o "C:\Program Files\SKL\Registry-Reparator\UserDiag.exe" https://userdiag.com/download && set CHECK_2=1
@@ -140,3 +149,10 @@ GOTO EXIT
     echo Thanks for using SKL Programs!
     timeout 5 >nul
     exit
+
+:RESTART_EXIT
+
+    echo.
+    echo Your system will restart in less than a minute to complete installation
+    echo Thanks for using SKL Programs!
+    shutdown /r
