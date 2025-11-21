@@ -156,3 +156,5 @@ GOTO EXIT
     echo Your system will restart in less than a minute to complete installation
     echo Thanks for using SKL Programs!
     shutdown /r
+    timeout 5 >nul
+    exit
