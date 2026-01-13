@@ -74,7 +74,6 @@ if "%choice%"=="0" GOTO EXIT
 
     set CHECK_1=0
     set CHECK_2=0
-    set CHECK_3=0
 
     echo Checking Windows version...
     set REQUIRED_BUILD=26100
@@ -116,17 +115,9 @@ if "%choice%"=="0" GOTO EXIT
     timeout 1 >nul
     echo.
 
-    echo Adding to Path...
-    $path = "C:\Mon\Nouveau\Chemin"
-    [Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + $path, [EnvironmentVariableTarget]::Machine) && set CHECK_3=1
-
     if %CHECK_1%==1 ( 
 
-        if %CHECK_2%==1 ( 
-
-            if %CHECK_3%==1 ( echo Operation successful ) else ( echo Operation failed )
-
-        ) else ( echo Operation failed )
+        if %CHECK_2%==1 ( echo Operation successful ) else ( echo Operation failed )
 
     ) else ( echo Operation failed )
 
