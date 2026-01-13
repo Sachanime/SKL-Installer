@@ -76,6 +76,24 @@ if "%choice%"=="0" GOTO EXIT
     set CHECK_2=0
     set CHECK_3=0
 
+    echo Checking Windows version...
+    set REQUIRED_BUILD=26100
+    for /f "tokens=3" %%a in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v CurrentBuild ^| find "CurrentBuild"') do set BUILD=%%a
+    echo Your Windows version : 10.0.%BUILD%
+    timeout 1 >nul
+    echo.
+    
+    if %BUILD% GEQ %REQUIRED_BUILD% (
+        echo You system is ready
+        timeout 1 >nul
+        echo.
+    ) else (
+        echo You system isn't compatible
+        timeout 1 >nul
+        GOTO EXIT
+    )
+
+
     echo Activating Sudo...
     sudo config --enable normal
     timeout 1 >nul
