@@ -1,0 +1,20 @@
+{
+  "name": "skl-installer",
+  "version": "1.1.1",
+  "description": "An installer for all SKL Programs",
+  "homepage": "https://github.com/Sachanime/SKL-Installer#readme",
+  "bugs": {
+    "url": "https://github.com/Sachanime/SKL-Installer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sachanime/SKL-Installer.git"
+  },
+  "license": "",
+  "author": "Sachanime",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
