@@ -1,3 +1,11 @@
-const { init } = require('./Functions/index')
+const { init, displayMenu } = require('./Functions/index')
 
-init()
+async function main() {
+
+    await init()
+    const choice = await displayMenu()
+    console.log(choice)
+
+}
+
+main()

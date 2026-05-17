@@ -1,3 +1,3 @@
-const { displayBanner } = require('./displayBanner')
 const { init } = require('./init')
-module.exports = { displayBanner, init }
+const { displayMenu } = require('./displayMenu')
+module.exports = { init, displayMenu }
