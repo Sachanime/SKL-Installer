@@ -11,3 +11,5 @@ async function installAutoWinget() {
     console.log(windowsBuild)
 
 }
+
+module.exports = { installAutoWinget }
