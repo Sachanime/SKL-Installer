@@ -5,7 +5,7 @@ async function init() {
 
     displayBanner('BannerPrograms.txt')
     await sleep(1500)
-    console.clear()
+    process.stdout.write('\x1B[2J\x1B[3J\x1B[H')
     displayBanner('BannerInstaller.txt')
 
 }

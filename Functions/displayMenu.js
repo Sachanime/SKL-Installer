@@ -1,5 +1,5 @@
 const readline = require('node:readline/promises')
-const { stdin: input, stdout, output } = require('node:process')
+const { stdin: input, stdout: output } = require('node:process')
 
 async function displayMenu() {
 
@@ -9,7 +9,7 @@ async function displayMenu() {
     while(menu) {
 
         console.log("\nMAIN MENU")
-        console.log("\nSelect the program you want to install")
+        console.log("Select the program you want to install")
         console.log("\n1) Auto-Winget")
         console.log("2) Registry-Reparator")
         console.log("3) EXIT")
