@@ -4,7 +4,6 @@ async function main() {
 
     await init()
     const choice = await displayMenu()
-    console.log(choice)
 
 }
 
