@@ -25,7 +25,6 @@ async function readRegistry(regPath, regValue) {
 
     catch (err) {
         console.error("Reading error : \n", err)
-        return
     }
 
 }
