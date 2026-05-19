@@ -21,3 +21,5 @@ async function curl(url, path) {
     })
 
 }
+
+module.exports = { curl }
