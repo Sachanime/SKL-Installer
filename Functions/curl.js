@@ -2,7 +2,7 @@ const { exec } = require('child_process')
 
 async function curl(url, path) {
 
-    const command = 'curl -L -o ' + url  + ' ' + path
+    const command = 'curl -L ' + url  + ' -o ' + path
 
     exec(command, (error, stdout, stderr) => {
 
