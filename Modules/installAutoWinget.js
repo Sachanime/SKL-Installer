@@ -1,5 +1,5 @@
 const { exec } = require('child_process')
-const { readRegistry, createFolder, curl } = require('../Functions/functions')
+const { readRegistry, createFolder, curl, importScheduledTask } = require('../Functions')
 
 async function installAutoWinget() {
 
@@ -50,6 +50,12 @@ async function installAutoWinget() {
 
     await curl("https://raw.githubusercontent.com/Sachanime/Auto-winget/main/Auto-Winget.ps1", "C:\\Program Files\\SKL\\Auto-Winget\\Auto-Winget.ps1")
     await curl("https://raw.githubusercontent.com/Sachanime/Auto-winget/main/Auto-Winget.xml", "C:\\Program Files\\SKL\\Auto-Winget\\Auto-winget.xml")
+
+    console.log("Importing scheduled task...")
+
+    await importScheduledTask("C:\\Program Files\\SKL\\Auto-Winget\\Auto-winget.xml", "Auto-Winget")
+
+    console.log("Finished")
 
 }
 
