@@ -1,5 +1,5 @@
 const { exec } = require('child_process')
-const { readRegistry, createFolder } = require('../Functions/functions')
+const { readRegistry, createFolder, curl } = require('../Functions/functions')
 
 async function installAutoWinget() {
 
@@ -48,8 +48,8 @@ async function installAutoWinget() {
 
     console.log("Downloading files...")
 
-    
-    
+    await curl("https://raw.githubusercontent.com/Sachanime/Auto-winget/main/Auto-Winget.ps1", "C:\\Program Files\\SKL\\Auto-Winget\\Auto-Winget.ps1")
+    await curl("https://raw.githubusercontent.com/Sachanime/Auto-winget/main/Auto-Winget.xml", "C:\\Program Files\\SKL\\Auto-Winget\\Auto-winget.xml")
 
 }
 
