@@ -1,4 +1,4 @@
-const { displayBanner } = require('./displayBanner')
+const { displayBanner } = require('../Functions/functions')
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 async function init() {

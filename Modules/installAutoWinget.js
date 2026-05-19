@@ -1,6 +1,5 @@
 const { exec } = require('child_process')
-const { readRegistry } = require('./readRegistry')
-const { createFolder } = require('./createFolder')
+const { readRegistry, createFolder } = require('../Functions/functions')
 
 async function installAutoWinget() {
 
@@ -45,7 +44,12 @@ async function installAutoWinget() {
 
     console.log("Creating directories...")
 
-    createFolder('C:\\Program Files\\SKL\\Auto-Winget')
+    await createFolder('C:\\Program Files\\SKL\\Auto-Winget')
+
+    console.log("Downloading files...")
+
+    
+    
 
 }
 
