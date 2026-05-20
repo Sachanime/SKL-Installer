@@ -17,7 +17,6 @@ async function readRegistry(regPath, regValue) {
         }
 
         else {
-            console.error("Error: Key not found")
             throw(new Error("Registry key not found"))
         }
 

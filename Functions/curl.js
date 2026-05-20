@@ -5,7 +5,7 @@ const execPromise = util.promisify(exec)
 
 async function curl(url, path) {
 
-    const command = 'curl -L ' + url  + ' -o ' + path
+    const command = 'curl -f -L "' + url  + '" -o "' + path + '"'
 
     try {
         const { stdout } = await execPromise(command)
