@@ -1,4 +1,4 @@
-const { init, displayMenu, installAutoWinget } = require('./Functions/index')
+const { init, displayMenu, installAutoWinget } = require('./Modules')
 
 async function main() {
 
