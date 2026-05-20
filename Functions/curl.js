@@ -1,24 +1,21 @@
 const { exec } = require('child_process')
+const util = require('util')
+
+const execPromise = util.promisify(exec)
 
 async function curl(url, path) {
 
     const command = 'curl -L ' + url  + ' -o ' + path
 
-    exec(command, (error, stdout, stderr) => {
-
-        if(error) {
-            console.error("Execution error :\n", error)
-            return
-        }
-
-        if(stderr) {
-            console.error("System error :\n", stderr)
-            return
-        }
-
+    try {
+        const { stdout } = await execPromise(command)
         console.log(stdout || "File downloaded")
+    }
 
-    })
+    catch(error) {
+        console.error("Execution error :\n", error.message)
+        throw(error)
+    }
 
 }
 

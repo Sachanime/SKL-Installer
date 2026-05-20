@@ -9,12 +9,13 @@ async function createFolder(path) {
 
     catch (err) {
 
-        if(err.code == 'EEXIST') {
+        if(err.code === 'EEXIST') {
             console.error('Folder alredy exist')
         }
 
         else {
             console.error("Error :\n", err)
+            throw(err)
         }
 
     }

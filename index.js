@@ -6,7 +6,15 @@ async function main() {
     const choice = await displayMenu()
 
     if(choice == 1) {
-        await installAutoWinget()
+
+        try { 
+            await installAutoWinget() 
+        }
+
+        catch(err) {
+            console.error("Auto-Winget installation failed")
+        }
+
     }
 
 }

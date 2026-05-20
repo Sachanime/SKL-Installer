@@ -18,13 +18,14 @@ async function readRegistry(regPath, regValue) {
 
         else {
             console.error("Error: Key not found")
-            return
+            throw(new Error("Registry key not found"))
         }
 
     }
 
     catch (err) {
         console.error("Reading error : \n", err)
+        throw(err)
     }
 
 }
