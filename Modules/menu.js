@@ -19,12 +19,15 @@ async function displayMenu() {
         switch(choice) {
 
             case '1':
+                rl.close()
                 return(1)
 
             case '2':
+                rl.close()
                 return(2)
 
             case '3':
+                rl.close
                 return(3)
 
             default:
@@ -33,8 +36,6 @@ async function displayMenu() {
         }
 
     }
-
-    rl.close()
 
 }
 
