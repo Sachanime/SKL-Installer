@@ -1,3 +1,4 @@
 *.exe
 *.ico
 *test*
+node_modules/
