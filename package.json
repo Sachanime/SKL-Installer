@@ -22,7 +22,7 @@
     "targets": ["node18-win-x64"]
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "pkg . --targets node18-win-x64 --output testApp.exe",
     "build": "pkg . --targets node18-win-x64 --output app.exe"
   },
   "dependencies": {
