@@ -5,12 +5,20 @@ const { extractFiles } = require('./extractFiles')
 async function readRegistry(regPath, regValue) {
 
     const isPkg = typeof process.pkg !== 'undefined'
-    const targetVbsDir = path.join(process.env.TEMP, skl, vbs)
+    const vbsTargetDir = path.join(process.env.TEMP, skl, vbs)
+    const vbsSource = path.join('..', 'node_modules', 'regedit', 'vbs' )
+    const vbsFiles = ['regList.wsf', 'regRead.wsf', 'regWrite.wsf', 'regQuery.wsf', 'regDelete.wsf']
 
     if(isPkg) {
 
         try {
-            extractFiles()
+            await extractFiles(vbsSource, vbsTargetDir, vbsFiles)
+            regedit.setExternealVbsDir(vbsTargetDir)
+        }
+
+        catch(err) {
+            console.error('Extraction failed')
+            throw(err)
         }
 
     }
