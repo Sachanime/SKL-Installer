@@ -55,7 +55,7 @@ async function installAutoWinget() {
     } 
     
     catch(err) {
-        console.error("Folder creation failed, stopping installation.")
+        console.error("Folder creation failed")
         throw(err)
     }
 
