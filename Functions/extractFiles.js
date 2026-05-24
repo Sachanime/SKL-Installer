@@ -6,15 +6,15 @@ async function extractFiles(source, dest, files) {
 
     try {
         
-        createFolder(dest)
+        await createFolder(dest)
         
         files.forEach(file => {
 
             const sourcePath = path.join(source, file)
-            const destPatrh = path.join(dest, file)
-            const fileData = fs.readFile(sourcePath)
+            const destPath = path.join(dest, file)
+            const fileData = fs.readFileSync(sourcePath)
 
-            fs.writeFile(destPatrh, fileData)
+            fs.writeFileSync(destPath, fileData)
 
         })
 
