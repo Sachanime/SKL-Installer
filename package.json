@@ -17,7 +17,7 @@
   "bin": "index.js",
   "pkg": {
     "assets": ["ASCII Art/**/*",
-    "node_modules/regedit/vbs/**/*",
+    "node_modules/regedit/vbs/*.wsf",
     "config.json"],
     "targets": ["node18-win-x64"]
   },
