@@ -14,7 +14,7 @@ async function createFolder(path) {
         }
 
         else {
-            console.error("Error :\n", err)
+            console.error("Execution error :\n", err)
             throw(err)
         }
 

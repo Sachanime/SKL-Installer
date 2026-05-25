@@ -5,7 +5,7 @@ const execPromise = util.promisify(exec)
 
 async function importScheduledTask(path, name) {
 
-    const command = 'schtasks /Create /XML "' + path + '" /TN "' + name + '" /F'
+    const command = `schtasks /Create /XML "${path}" /TN "${name}" /F`
 
     try {
         const { stdout } = await execPromise(command)

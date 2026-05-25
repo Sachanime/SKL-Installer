@@ -1,6 +1,6 @@
 async function pause() {
 
-    console.log("\nAppuyez sur une touche pour quitter...")
+    console.log("\nPress any key to exit...")
     
     if (process.stdin.isTTY) {
         process.stdin.setRawMode(true)

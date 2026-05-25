@@ -21,7 +21,7 @@ async function extractFiles(source, dest, files) {
     }
 
     catch(err) {
-        console.error("Extraction error :\n", err)
+        console.error("Execution error :\n", err)
         throw(err)
     }
 

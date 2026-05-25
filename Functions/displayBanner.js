@@ -10,7 +10,7 @@ function displayBanner(filename) {
     }
 
     catch(err) {
-        console.error('Erreur lors de la lecture du fichier\n', err)
+        console.error('Execution error :\n', err)
     }
 
 }
