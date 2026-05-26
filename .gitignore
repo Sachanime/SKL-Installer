@@ -1,6 +1,7 @@
 node_modules/
 bin/
-Icon/
+icons/
+scripts/
 
 package-lock.json
 *test*
