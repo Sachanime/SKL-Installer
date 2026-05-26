@@ -16,16 +16,23 @@
   "main": "index.js",
   "bin": "index.js",
   "pkg": {
-    "assets": ["ASCII Art/**/*",
-    "node_modules/regedit/vbs/*.wsf",
-    "config.json"],
-    "targets": ["node18-win-x64"]
+    "assets": [
+      "ASCII Art/**/*",
+      "node_modules/regedit/vbs/*.wsf",
+      "config.json"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ]
   },
   "scripts": {
-    "test": "pkg . --targets node18-win-x64 --output testApp.exe",
-    "build": "pkg . --targets node18-win-x64 --output app.exe"
+    "test": "pkg ./test.js --targets node18-win-x64 --output bin\\testApp.exe",
+    "build": "pkg . --targets node18-win-x64 --output bin\\app.exe && node ./scripts/postbuild.js"
   },
   "dependencies": {
     "regedit": "^5.1.4"
+  },
+  "devDependencies": {
+    "resedit": "^3.0.2"
   }
 }
