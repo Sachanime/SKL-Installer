@@ -27,12 +27,12 @@
   },
   "scripts": {
     "test": "pkg ./test.js --targets node18-win-x64 --output bin\\testApp.exe",
-    "build": "pkg . --targets node18-win-x64 --output bin\\app.exe && node ./scripts/postbuild.js"
+    "build": "node ./scripts/build.js"
   },
   "dependencies": {
     "regedit": "^5.1.4"
   },
   "devDependencies": {
-    "resedit": "^3.0.2"
+    "pkg-exe-build": "^2.0.0"
   }
 }
