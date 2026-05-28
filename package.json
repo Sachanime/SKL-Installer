@@ -18,7 +18,7 @@
   "pkg": {
     "assets": [
       "ASCII Art/**/*",
-      "node_modules/regedit/vbs/*.wsf",
+      "node_modules/regedit/vbs/**/*",
       "config.json"
     ],
     "targets": [

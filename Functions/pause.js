@@ -1,5 +1,6 @@
 async function pause() {
 
+    console.log("Thanks for using SKL Programs")
     console.log("\nPress any key to exit...")
     
     if (process.stdin.isTTY) {

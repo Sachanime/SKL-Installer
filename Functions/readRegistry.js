@@ -7,7 +7,7 @@ async function readRegistry(regPath, regValue) {
 
     const isPkg = typeof process.pkg !== 'undefined'
     const vbsTargetDir = path.join(process.env.TEMP, 'skl', 'vbs')
-    const vbsSource = path.resolve(process.cwd(), 'node_modules', 'regedit', 'vbs' )
+    const vbsSource = path.resolve(__dirname, '..', 'node_modules', 'regedit', 'vbs' )
     const vbsFiles = ['ArchitectureAgnosticRegistry.vbs', 'ArchitectureSpecificRegistry.vbs', 'JsonSafeTest.wsf', 'regCreateKey.wsf', 'regDeleteKey.wsf', 'regDeleteValue.wsf', 'regList.wsf', 'regListStream.wsf', 'regPutValue.wsf', 'regUtil.vbs', 'util.vbs', 'wsRegReadList.wsf', 'wsRegReadListStream.wsf']
 
     if(isPkg) {
@@ -18,7 +18,7 @@ async function readRegistry(regPath, regValue) {
         }
 
         catch(err) {
-            console.error('Extraction failed', err)
+            console.error('Extraction failed')
             throw(err)
         }
 
