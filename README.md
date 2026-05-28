@@ -11,4 +11,3 @@ It will install all required files for the choosed program in `C:\Program Files\
 
 ## Compatible SKL Programs
 - [Auto-Winget](https://github.com/Sachanime/Auto-winget)
-- [Registry-Reparator](https://github.com/Sachanime/Registry-Reparator)

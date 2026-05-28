@@ -1,0 +1,38 @@
+{
+  "name": "skl-installer",
+  "version": "1.1.1",
+  "description": "An installer for all SKL Programs",
+  "homepage": "https://github.com/Sachanime/SKL-Installer#readme",
+  "bugs": {
+    "url": "https://github.com/Sachanime/SKL-Installer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sachanime/SKL-Installer.git"
+  },
+  "license": "",
+  "author": "Sachanime",
+  "type": "commonjs",
+  "main": "index.js",
+  "bin": "index.js",
+  "pkg": {
+    "assets": [
+      "ASCII Art/**/*",
+      "node_modules/regedit/vbs/**/*",
+      "config.json"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ]
+  },
+  "scripts": {
+    "test": "pkg ./test.js --targets node18-win-x64 --output bin\\testApp.exe",
+    "build": "node ./scripts/build.js"
+  },
+  "dependencies": {
+    "regedit": "^5.1.4"
+  },
+  "devDependencies": {
+    "pkg-exe-build": "^2.0.0"
+  }
+}

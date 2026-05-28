@@ -1,2 +1,7 @@
-*.exe
-*.ico
+node_modules/
+bin/
+icons/
+scripts/
+
+package-lock.json
+*test*

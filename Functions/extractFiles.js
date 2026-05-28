@@ -1,0 +1,30 @@
+const fs = require('fs')
+const path = require('path')
+const { createFolder } = require('./createFolder')
+
+async function extractFiles(source, dest, files) {
+
+    try {
+        
+        await createFolder(dest)
+        
+        files.forEach(file => {
+
+            const sourcePath = path.join(source, file)
+            const destPath = path.join(dest, file)
+            const fileData = fs.readFileSync(sourcePath)
+
+            fs.writeFileSync(destPath, fileData)
+
+        })
+
+    }
+
+    catch(err) {
+        console.error("Execution error :\n", err)
+        throw(err)
+    }
+
+}
+
+module.exports = { extractFiles }
