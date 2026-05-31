@@ -1,3 +1,4 @@
+const { program } = require('commander')
 const { init, displayMenu, installAutoWinget } = require('./Modules')
 const { pause } = require('./Functions')
 
