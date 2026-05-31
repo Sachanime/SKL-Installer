@@ -45,11 +45,13 @@ async function silentInstallAutoWinget() {
     try {
         await init()
         await installAutoWinget()
+        console.log("Installation successfull")
         process.exit(0)
     }
 
-    catch (err) {
-        console.error("Silent Auto-Winget installation failed")
+    catch(err) {
+        console.error("Installation failed")
+        await pause()
         process.exit(1)
     }
 
