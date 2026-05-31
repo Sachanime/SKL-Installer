@@ -2,6 +2,13 @@ const { program } = require('commander')
 const { init, displayMenu, installAutoWinget } = require('./Modules')
 const { pause } = require('./Functions')
 
+program.version('1.0.0')
+.option('--install-auto-winget', 'Installer Auto-Winget en mode silencieux')
+.allowUnknownOption()
+
+program.parse(process.argv)
+const options = program.opts()
+
 async function main() {
 
     await init()
@@ -33,5 +40,26 @@ async function main() {
 
 }
 
+async function silentInstallAutoWinget() {
 
-main ()
+    try {
+        await init()
+        await installAutoWinget()
+        process.exit(0)
+    }
+
+    catch (err) {
+        console.error("Silent Auto-Winget installation failed")
+        process.exit(1)
+    }
+
+}
+
+if(options.installAutoWinget) {
+    silentInstallAutoWinget()
+}
+
+
+else {
+    main()
+}
