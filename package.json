@@ -30,6 +30,7 @@
     "build": "node ./scripts/build.js"
   },
   "dependencies": {
+    "commander": "^15.0.0",
     "regedit": "^5.1.4"
   },
   "devDependencies": {
