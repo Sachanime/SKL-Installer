@@ -24,7 +24,6 @@ async function main() {
     }
 
     if(choice == 3) {
-        console.log("Thanks for using SKL Programs!")
         await pause()
         process.exit(0)
     }
