@@ -26,7 +26,7 @@
     ]
   },
   "scripts": {
-    "test": "pkg ./test.js --targets node18-win-x64 --output bin\\testApp.exe",
+    "test": "node ./scripts/test-build.js",
     "build": "node ./scripts/build.js"
   },
   "dependencies": {

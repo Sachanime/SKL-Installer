@@ -1,24 +1,19 @@
 const regeditRaw = require('regedit')
 const regedit = regeditRaw.promisified
-const path = require('path')
-const { extractFiles } = require('./extractFiles')
+const { extractRegeditVbsFiles } = require('./extractRegeditVbsFiles')
 
 async function readRegistry(regPath, regValue) {
 
     const isPkg = typeof process.pkg !== 'undefined'
-    const vbsTargetDir = path.join(process.env.TEMP, 'skl', 'vbs')
-    const vbsSource = path.resolve(__dirname, '..', 'node_modules', 'regedit', 'vbs' )
-    const vbsFiles = ['ArchitectureAgnosticRegistry.vbs', 'ArchitectureSpecificRegistry.vbs', 'JsonSafeTest.wsf', 'regCreateKey.wsf', 'regDeleteKey.wsf', 'regDeleteValue.wsf', 'regList.wsf', 'regListStream.wsf', 'regPutValue.wsf', 'regUtil.vbs', 'util.vbs', 'wsRegReadList.wsf', 'wsRegReadListStream.wsf']
 
     if(isPkg) {
 
         try {
-            await extractFiles(vbsSource, vbsTargetDir, vbsFiles)
-            regeditRaw.setExternalVBSLocation(vbsTargetDir)
+            await extractRegeditVbsFiles()
         }
 
         catch(err) {
-            console.error('Extraction failed')
+            console.error('VBS extraction failed')
             throw(err)
         }
 

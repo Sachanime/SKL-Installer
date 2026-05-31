@@ -1,6 +1,6 @@
 const { exec } = require('child_process')
 const util = require('util')
-const { readRegistry, createFolder, curl, importScheduledTask } = require('../Functions')
+const { readRegistry, createFolder, curl, importScheduledTask, writeRegistry } = require('../Functions')
 
 const execPromise = util.promisify(exec)
 
@@ -79,6 +79,31 @@ async function installAutoWinget() {
 
     catch(err) {
         console.error("Scheduled task import failed")
+        throw(err)
+    }
+
+    console.log("Registering...")
+
+    try {
+
+        const DisplayIcon = 'C:\\Program Files\\PowerShell\\7\\pwsh.exe'
+        const helpLink = 'https://github.com/Sachanime/Auto-winget#readme'
+        const installLocation = 'C:\\Program Files\\SKL\\Auto-Winget'
+        const URLInfoAbout = 'https://github.com/Sachanime/Auto-winget/issues'
+        const URLUpdateInfo = 'https://github.com/Sachanime/Auto-winget/releases/latest'
+        const UninstallString = 'C:\\Program Files\\SKL\\Auto-Winget'
+
+        const regPath = "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Auto-Winget"
+        const regKey = ['DisplayName', 'DisplayIcon', 'DisplayVersion', 'Publisher', 'HelpLink', 'InstalDate', 'InstallLocation', 'URLInfoAbout', 'URLUpdateInfo', 'Language', 'UninstallString']
+        const regType = ['REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ', 'REG_SZ']
+        const regValue = ['Auto-Winget', DisplayIcon, '1.2.2', 'SKL', helpLink, Date.now(), installLocation, URLInfoAbout, URLUpdateInfo, 'EN', UninstallString]
+
+        await writeRegistry(regPath, regKey, regType, regValue)
+
+    }
+
+    catch(err) {
+        console.log("Registration failed :\n", err)
         throw(err)
     }
 
