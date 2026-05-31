@@ -3,5 +3,4 @@ bin/
 icons/
 scripts/
 
-package-lock.json
 *test*
