@@ -51,7 +51,6 @@ async function silentInstallAutoWinget() {
 
     catch(err) {
         console.error("Installation failed")
-        await pause()
         process.exit(1)
     }
 

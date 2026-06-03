@@ -8,45 +8,6 @@ async function installAutoWinget() {
 
     process.stdout.write('\x1B[2J\x1B[3J\x1B[H')
     console.log("Starting Auto-Winget installation...")
-    console.log("Checking your Windows version...")
-
-    const requiredBuild = 26100
-    let windowsBuild
-    let buildNumber
-
-    try {
-        windowsBuild = await readRegistry('HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion', 'CurrentBuild')
-        buildNumber = parseInt(windowsBuild, 10)
-        console.log("Your Windows version is 10.0." + buildNumber)
-    }
-
-    catch(err) {
-        console.error("Registry read failed")
-        throw(err)
-    }
-
-    if(buildNumber >= requiredBuild) {
-        console.log("Your system is ready")
-    }
-
-    else {
-        console.error("Your system is not compatible")
-        throw(new Error("System not compatible"))
-    }
-
-    console.log("Activating sudo...")
-
-    const command = 'sudo config --enable normal'
-
-    try {
-        const { stdout } = await execPromise(command)
-        console.log(stdout || 'Sudo activated')
-    }
-
-    catch(error) {
-        console.error("Execution error:\n", error.message)
-        throw(error)
-    }
 
     console.log("Creating directories...")
 
